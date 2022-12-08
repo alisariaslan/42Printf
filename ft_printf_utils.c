@@ -6,27 +6,27 @@
 /*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:52:18 by ali               #+#    #+#             */
-/*   Updated: 2022/12/06 14:29:37 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/08 09:53:50 by ali              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//PRINTS CHAR VALUE
+//PRINTS CHAR VALUE RETURNS 1
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-//PRINTS %
+//PRINTS % RETURNS 1
 int	ft_printpercent()
 {
-	write(1, "%%", 1);
+	write(1, "%", 1);
 	return (1);
 }
 
-//PRINTS STRING VALUE (RETURNS 0)
+//PRINTS STRING VALUE
 void	ft_putstr(char *string)
 {
 	int	length;
@@ -58,7 +58,7 @@ int	ft_printstr(char *string)
 	return (length);
 }
 
-//PRINTS INT VALUE AS NUMBER 
+//PRINTS INT VALUE AS NUMBER RETURNS LENGTH
 int	ft_printnbr(int value)
 {
 	int		length;

@@ -6,13 +6,13 @@
 /*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:27:36 by ali               #+#    #+#             */
-/*   Updated: 2022/12/06 09:53:09 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/08 09:43:32 by ali              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	ft_len(int n, int t)
+int	ft_len(int n, int t)
 {
 	int	i;
 

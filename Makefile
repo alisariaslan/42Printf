@@ -6,7 +6,7 @@
 #    By: ali <ali@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 09:48:08 by ali               #+#    #+#              #
-#    Updated: 2022/12/06 11:21:18 by ali              ###   ########.fr        #
+#    Updated: 2022/12/08 09:52:44 by ali              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,12 @@ NAME = libftprintf.a
 FLAGS = -Wall -Wextra -Werror
 FILES = $(shell find . -name "ft_*.c")
 
-all: $(NAME)
-
-$(NAME):
+$(NAME):*.c
 	gcc $(FLAGS) -c $(FILES)
 	ar rc $(NAME) *.o
+	
+all: $(NAME)
+
 clean:
 	rm -f  *.o
 fclean: clean
@@ -29,5 +30,5 @@ re: fclean all
 .PHONY: all clean fclean re
 
 d:
-	gcc $(FILES) main.c
+	gcc $(FILES)
 	./a.out

@@ -6,7 +6,7 @@
 /*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:02:25 by ali               #+#    #+#             */
-/*   Updated: 2022/12/06 14:35:19 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/08 10:08:06 by ali              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,23 @@ int ft_print_unsigned(unsigned int value)
 	length = ft_printstr(string);
 	free(string);
 	return (length);
+}
+
+void lol(int c, ...)
+{
+	#include <stdio.h>
+	va_list list;
+	va_start(list,c);
+	printf("\nsayi1: %d\n",va_arg(list,int));
+	
+	printf("\nsayi2: %d\n",va_arg(list,int));
+	printf("\nsayi3: %d\n",va_arg(list,int));
+}
+
+int main()
+{
+	#include <stdio.h>
+	//printf("%u\n",4294967290);
+	//ft_printf("%u\n",4294967290);
+	lol(3,1022,3432,1232);
 }
