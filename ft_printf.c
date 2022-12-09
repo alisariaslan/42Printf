@@ -6,7 +6,7 @@
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:06:04 by mkucukku          #+#    #+#             */
-/*   Updated: 2022/12/09 13:25:13 by msariasl         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:02:11 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,11 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (len);
+}
+
+int main()
+{
+	void *str = "lololo";
+	unsigned long long c = str;
+	int cc = printf("%llu",c);
 }
