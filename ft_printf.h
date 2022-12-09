@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 17:06:17 by mkucukku          #+#    #+#             */
-/*   Updated: 2022/12/09 13:25:57 by msariasl         ###   ########.fr       */
+/*   Created: 2022/12/09 13:55:41 by msariasl          #+#    #+#             */
+/*   Updated: 2022/12/09 13:59:05 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "stdarg.h"
 # include "stdlib.h"
 
-int	        ft_putchar(char c);
-int     	ft_printpercent(void);
+int			ft_putchar(char c);
+int			ft_printpercent(void);
 char		*ft_itoa(int n);
 int			ft_printstr(char *s);
 int			ft_printnbr(int n);

@@ -5,55 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 17:05:19 by mkucukku          #+#    #+#             */
-/*   Updated: 2022/12/09 13:22:23 by msariasl         ###   ########.fr       */
+/*   Created: 2022/12/09 13:56:08 by msariasl          #+#    #+#             */
+/*   Updated: 2022/12/09 13:57:53 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 //COUNTS DIGIT
-int	count1(int n)
+int	ft_len(int n, int t)
 {
 	int	i;
 
 	i = 0;
-	if (n < 0)
-	{
-		n = -n;
-		i++;
-	}
+	if (n == 0)
+		i = 1;
 	while (n != 0)
 	{
 		i++;
 		n = n / 10;
 	}
+	if (t < 0)
+		i++;
 	return (i);
 }
 
-
-//LIBFT ITOA FUN
 char	*ft_itoa(int n)
 {
-	char	*s;
-	int		len;
-	long	x;
+	char	*str;
+	int		lenn;
+	int		sign;
+	long	n2;
 
-	x = n;
-	len = count1(x);
-	s = (char *)malloc(len + 1);
-	if (!s)
+	n2 = n;
+	if (n2 < 0)
+		sign = -1;
+	else
+		sign = 1;
+	n2 = sign * n2;
+	lenn = ft_len(n2, sign);
+	str = (char *)malloc(sizeof(char) * lenn + 1);
+	if (!str)
 		return (0);
-	s[len] = '\0';
-	if (x < 0)
+	str[lenn] = '\0';
+	while (--lenn >= 0)
 	{
-		s[0] = '-';
-		x = -x;
+		str[lenn] = '0' + (n2 % 10);
+		n2 = n2 / 10;
 	}
-	while (x != 0)
-	{
-		s[--len] = x % 10 + 48;
-		x = x / 10;
-	}
-	return (s);
+	if (sign == -1)
+		str[0] = '-';
+	return (str);
 }
