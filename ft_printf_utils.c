@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:52:18 by ali               #+#    #+#             */
-/*   Updated: 2022/12/08 09:53:50 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/09 12:36:45 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printstr(char *string)
 	length = 0;
 	if (!string)
 	{
-		ft_putstr("(null)");
+		ft_putstr("");
 		return (6);
 	}
 	while (string[length])

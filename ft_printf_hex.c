@@ -3,57 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:55:06 by ali               #+#    #+#             */
-/*   Updated: 2022/12/06 14:29:44 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/09 13:05:51 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_len_hex(unsigned int n)
+//TAKES VALUE AND RETURNS ITS DIGIT LENGTH
+int	ft_len_hex(unsigned int value)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (n != 0)
+	len = 0;
+	while (value != 0)
 	{
-		n = n / 16;
-		i++;
+		value = value / 16;
+		len++;
 	}
-	return (i);
+	return (len);
 }
 
-void	ft_put_hex(unsigned int n, const char format)
+//CONVERTS VALUE TO HEXADECIMAL WITH RECURSIVE
+void	ft_put_hex(unsigned int value, const char format) 
 {
-	if (n >= 16)
+	if (value >= 16) 
 	{
-		ft_put_hex(n / 16, format);
-		ft_put_hex(n % 16, format);
+		ft_put_hex(value / 16, format);
+		ft_put_hex(value % 16, format);
 	}
 	else
 	{
-		if (n > 9)
+		if (value > 9)
 		{
 			if (format == 'x')
-				ft_putchar(n - 10 + 'a');
+				ft_putchar(value - 10 + 'a');
 			if (format == 'X')
-				ft_putchar(n - 10 + 'A');
+				ft_putchar(value - 10 + 'A');
 		}
 		else
-			ft_putchar(n + 48);
+			ft_putchar(value + 48);
 	}
 }
 
-int	ft_print_hex(unsigned int n, const char format)
+//PRINTS AS HEXADECIMAL
+int	ft_print_hex(unsigned int value, const char format)
 {
-	if (n == 0)
+	if (value == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
 	else
-		ft_put_hex(n, format);
-	return (ft_len_hex(n));
+		ft_put_hex(value, format);
+	return (ft_len_hex(value));
 }

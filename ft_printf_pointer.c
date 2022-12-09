@@ -3,53 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_pointer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:06:38 by ali               #+#    #+#             */
-/*   Updated: 2022/12/06 14:29:42 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/09 13:06:23 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	hex_len(unsigned long long a)
+//TAKES VALUE AND RETURNS ITS DIGIT LENGTH
+int	hex_len(unsigned long long value)
 {
 	int	len;
 
 	len = 0;
-	while (a != 0)
+	while (value != 0)
 	{
-		a /= 16;
+		value = value / 16;
 		len++;
 	}
 	return (len);
 }
 
-void	ft_put_hexx(unsigned long long n)
+//CONVERTS VALUE TO HEXADECIMAL WITH RECURSIVE
+void	ft_put_hexx(unsigned long long value)
 {
-	if (n >= 16)
+	if (value >= 16)
 	{
-		ft_put_hexx(n / 16);
-		ft_put_hexx(n % 16);
+		ft_put_hexx(value / 16);
+		ft_put_hexx(value % 16);
 	}
 	else
 	{
-		if (n > 9)
-			ft_putchar(n - 10 + 'a');
+		if (value > 9)
+			ft_putchar(value - 10 + 'a');
 		else
-			ft_putchar(n + 48);
+			ft_putchar(value + 48);
 	}
 }
 
-int	ft_print_ptr(unsigned long long n)
+//PRINTS AS HEXADECIMAL TAKES ULL
+int	ft_print_ptr(unsigned long long value)
 {
 	int	len;
 
 	len = 0;
+
 	len += write(1, "0x", 2);
-	if (n == 0)
+	if (value == 0)
 		len += write(1, "0", 1);
 	else
-		ft_put_hexx(n);
-	return (hex_len(n) + len);
+		ft_put_hexx(value);
+	return (hex_len(value) + len);
 }

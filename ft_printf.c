@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:54:10 by ali               #+#    #+#             */
-/*   Updated: 2022/12/08 09:55:32 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/09 12:53:41 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//GETS FROM DEFAULT AND SENDS TO SPECIFIC TYPE TO A FUNCITON
 int	ft_formats(va_list args, char symbol)
 {
 	int	lenght;
@@ -32,9 +33,9 @@ int	ft_formats(va_list args, char symbol)
 	else if (symbol == 'p')
 		lenght += ft_print_ptr(va_arg(args, unsigned long long));
 	return (lenght);
-	
 }
 
+//DEFAULT FUNCTION
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;

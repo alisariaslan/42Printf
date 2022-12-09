@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_uns.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ali <ali@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:02:25 by ali               #+#    #+#             */
-/*   Updated: 2022/12/08 10:08:06 by ali              ###   ########.fr       */
+/*   Updated: 2022/12/09 12:47:48 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//COUNTS DIGIT
 int count(unsigned int value)
 {
 	int count;
@@ -25,6 +26,7 @@ int count(unsigned int value)
 	return (count);
 }
 
+//CONVERTS UNSIGNED TO ASCII
 char *ft_uns_itoa(unsigned int value)
 {
 	char *string;
@@ -41,6 +43,7 @@ char *ft_uns_itoa(unsigned int value)
 	return (string);
 }
 
+//PRINTS UNSIGNED VALUES
 int ft_print_unsigned(unsigned int value)
 {
 	char *string;
@@ -55,23 +58,4 @@ int ft_print_unsigned(unsigned int value)
 	length = ft_printstr(string);
 	free(string);
 	return (length);
-}
-
-void lol(int c, ...)
-{
-	#include <stdio.h>
-	va_list list;
-	va_start(list,c);
-	printf("\nsayi1: %d\n",va_arg(list,int));
-	
-	printf("\nsayi2: %d\n",va_arg(list,int));
-	printf("\nsayi3: %d\n",va_arg(list,int));
-}
-
-int main()
-{
-	#include <stdio.h>
-	//printf("%u\n",4294967290);
-	//ft_printf("%u\n",4294967290);
-	lol(3,1022,3432,1232);
 }
