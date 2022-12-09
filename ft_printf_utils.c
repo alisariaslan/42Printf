@@ -5,70 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 13:52:18 by ali               #+#    #+#             */
-/*   Updated: 2022/12/09 12:36:45 by msariasl         ###   ########.fr       */
+/*   Created: 2022/03/07 17:06:26 by mkucukku          #+#    #+#             */
+/*   Updated: 2022/12/09 13:25:30 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//PRINTS CHAR VALUE RETURNS 1
+//PRINT ONE CHAR
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-//PRINTS % RETURNS 1
-int	ft_printpercent()
+//PRINTS %
+int	ft_printpercent(void)
 {
 	write(1, "%", 1);
 	return (1);
 }
 
-//PRINTS STRING VALUE
-void	ft_putstr(char *string)
+//PRINTS STRING
+void	ft_putstr(char *s)
 {
-	int	length;
+	int	i;
 
-	length = 0;
-	while (string[length])
+	i = 0;
+	while (s[i])
 	{
-		write(1, &string[length], 1);
-		length++;
+		write(1, &s[i], 1);
+		i++;
 	}
 }
 
-//PRINTS STRING VALUE (RETURNS LENGTH)
-int	ft_printstr(char *string)
+//PRINTS STRING
+int	ft_printstr(char *s)
 {
-	int	length;
+	int	i;
 
-	length = 0;
-	if (!string)
+	i = 0;
+	if (!s)
 	{
-		ft_putstr("");
+		ft_putstr("(null)");
 		return (6);
 	}
-	while (string[length])
+	while (s[i])
 	{
-		write(1, &string[length], 1);
-		length++;
+		write(1, &s[i], 1);
+		i++;
 	}
-	return (length);
+	return (i);
 }
 
-//PRINTS INT VALUE AS NUMBER RETURNS LENGTH
-int	ft_printnbr(int value)
+//PRINTS NUMBER
+int	ft_printnbr(int n)
 {
-	int		length;
-	char	*string;
+	int		i;
+	char	*s;
 
-	length = 0;
-	if (value == 0)
+	i = 0;
+	if (n == 0)
 		return (write(1, "0", 1));
-	string = ft_itoa(value);
-	length = ft_printstr(string);
-	free(string);
-	return (length);
+	s = ft_itoa(n);
+	i = ft_printstr(s);
+	free(s);
+	return (i);
 }

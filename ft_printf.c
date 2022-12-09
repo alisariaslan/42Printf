@@ -5,37 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 09:54:10 by ali               #+#    #+#             */
-/*   Updated: 2022/12/09 12:53:41 by msariasl         ###   ########.fr       */
+/*   Created: 2022/03/07 17:06:04 by mkucukku          #+#    #+#             */
+/*   Updated: 2022/12/09 13:25:13 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//GETS FROM DEFAULT AND SENDS TO SPECIFIC TYPE TO A FUNCITON
-int	ft_formats(va_list args, char symbol)
+//DETECTOR
+int	ft_formats(va_list args, const char format)
 {
-	int	lenght;
-	
-	lenght = 0;
-	if (symbol == 'c')
-		lenght += ft_putchar(va_arg(args, int));
-	else if (symbol == 's')
-		lenght += ft_printstr(va_arg(args, char *));
-	else if (symbol == 'd' || symbol == 'i')
-		lenght += ft_printnbr(va_arg(args, int));
-	else if (symbol == '%') 
-		lenght += ft_printpercent();
-	else if (symbol == 'u')
-		lenght += ft_print_unsigned(va_arg(args, unsigned int));
-	else if (symbol == 'x' || symbol == 'X')
-		lenght += ft_print_hex(va_arg(args, unsigned int), symbol);
-	else if (symbol == 'p')
-		lenght += ft_print_ptr(va_arg(args, unsigned long long));
-	return (lenght);
+	int	len;
+
+	len = 0;
+	if (format == 'c')
+		len += ft_putchar(va_arg(args, int));
+	else if (format == 's')
+		len += ft_printstr(va_arg(args, char *));
+	else if (format == 'd' || format == 'i')
+		len += ft_printnbr(va_arg(args, int));
+	else if (format == '%')
+		len += ft_printpercent();
+	else if (format == 'u')
+		len += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (format == 'x' || format == 'X')
+		len += ft_print_hex(va_arg(args, unsigned int), format);
+	else if (format == 'p')
+		len += ft_print_ptr(va_arg(args, unsigned long long));
+	return (len);
 }
 
-//DEFAULT FUNCTION
+//DEFAULT FUN
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
