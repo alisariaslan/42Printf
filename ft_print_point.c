@@ -6,7 +6,7 @@
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:55:58 by msariasl          #+#    #+#             */
-/*   Updated: 2022/12/09 15:59:56 by msariasl         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:20:18 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,3 @@ int	ft_print_ptr(unsigned long long n)
 		ft_put_hexx(n);
 	return (hex_len(n) + len);
 }
-
-
