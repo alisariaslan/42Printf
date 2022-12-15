@@ -6,7 +6,7 @@
 /*   By: msariasl <msariasl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:06:04 by mkucukku          #+#    #+#             */
-/*   Updated: 2022/12/15 12:21:16 by msariasl         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:22:46 by msariasl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_formats(va_list args, const char format)
 		len += ft_printnbr(va_arg(args, int));
 	else if (format == '%')
 		len += ft_printpercent();
-	else if (format == 'u')
+	else if (format == 'u')	
 		len += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		len += ft_print_hex(va_arg(args, unsigned int), format);
